@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
 	def create
 		@post = Post.find(params[:post_id])
  	    @comment = @post.comments.create(comment_params.merge(user_id: current_user.id))
- 	    binding.pry
+ 	   
 		if @comment.valid?
 			redirect_to root_path
 		else
