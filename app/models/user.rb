@@ -7,5 +7,5 @@ class User < ApplicationRecord
   mount_uploader :photo, PhotoUploader
   has_many :posts
   has_many :comments
-  act_as_voter
+  acts_as_voter
 end
