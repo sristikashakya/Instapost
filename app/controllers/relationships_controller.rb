@@ -3,8 +3,7 @@ class RelationshipsController < ApplicationController
 		@user = User.find_by! id: params[:user_id]
 		if current_user.follow @user.id
 			respond_to do |format|
-				format.html { redirect_to user_path(@user.id) }
-				format.js
+				format.js { redirect_to user_path(@user.id) }
 			end
 		end
 	end
@@ -13,8 +12,7 @@ class RelationshipsController < ApplicationController
 		@user = User.find_by! id: params[:user_id]
 		if current_user.unfollow @user.id
 			respond_to do |format|
-				format.html { redirect_to user_path(@user.id) }
-				format.js
+				format.js { redirect_to user_path(@user.id) }
 			end
 		end
 	end
