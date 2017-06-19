@@ -2,4 +2,5 @@ class Comment < ApplicationRecord
 	belongs_to :post
 	belongs_to :user
 	validates :description, :user_id, :post_id, presence: true
+	delegate :name, to: :user, prefix: true
 end

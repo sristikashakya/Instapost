@@ -11,10 +11,19 @@
       <% end %>
       
       <div class="post_body">
-        <%= link_to @posts.user.name, user_path(@posts.user_id) %> <%= @posts.description %>
+        <%= link_to @posts.user_name, user_path(@posts.user_id) %> <%= @posts.description %>
       </div>	
   <% if @posts.user == current_user %>
     <%= link_to 'Edit Post', edit_post_path(@posts.id) %>
     <%= link_to 'Delete Post', post_path(@posts.id), method: :delete %>
   <% end %>
 
+<div class="post_comments">
+      
+        <% if user_signed_in? %>
+          <%= simple_form_for Comment.new, url: post_comments_path(post), method: :post do |f| %>
+            <%= f.input :description, label: 'Comment', placeholder: 'Add a comment...' %>
+            <%= f.submit 'Post', class: 'btn btn-primary btn-block' %>
+          <% end %>
+        <% end %>
+      </div>
