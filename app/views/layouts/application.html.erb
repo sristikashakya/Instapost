@@ -1,10 +1,11 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html>
   <head>
     <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+    <%= favicon_link_tag 'img1.png' %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Instapost</title>
+    <title>Share Your Photos Online - Instapost</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -16,9 +17,9 @@
       <div class="container-fluid">
         <div class='col-md-4'>
           <div class="pull-left brand no-dec">
-            <span i class="fa fa-instagram" style="font-size:36px"></i>
-            <span hr class="vertical">
-            <%= link_to 'Instagram', root_path%></span>
+             <%= link_to root_path do %><span i class="fa fa-instagram" style="font-size:36px"></i><% end %>
+             <span hr class="vertical">
+             <%= link_to 'Instagram', root_path%></span>
           </div>
         </div>
 
@@ -35,21 +36,19 @@
         </div>
 
         <div class='col-md-5'>
-          <ul class="nav nav-tabs pull-right">
+          <ul class="nav nav-tabs pull-right no-dec">
             <% if user_signed_in? %>
-              <li><%= link_to 'New Post', new_post_path %></li>
-              <li><%= link_to 'Edit Settings', edit_user_registration_path %></li>
-              <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
+              <li><%= link_to browse_posts_path do %>
+                <i class="fa fa-history" style="font-size:26px"></i><% end %>
+              </li>
+              <li><%= link_to edit_user_registration_path do %><i class="fa fa-cog", style="font-size:26px"></i><% end %></li> 
+              <li><%= link_to new_post_path do %><i class="fa fa-heart-o", style="font-size:26px"></i><% end %></li>
+              <li><%= link_to destroy_user_session_path , method: :delete do %><i class="fa fa-user-o", style="font-size:26px"></i><% end %></li>
             <% else %>
               <li><%= link_to 'Sign Up', new_user_registration_path %></li>
               <li><%= link_to 'Log In', new_user_session_path %></li>
             <% end %>
           </ul>
-        </div>
-
-
-        <div class="pull-right">
-        
         </div>
       </div>
   </nav>

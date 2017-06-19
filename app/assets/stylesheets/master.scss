@@ -119,6 +119,7 @@ nav {
 .no-dec a {
 	text-decoration: none !important;
 	color: black;
+  font-family: Satisfy;
 }
 .new-dec{
 	text-decoration: none !important;
@@ -126,7 +127,7 @@ nav {
 }
 .panel-design{
 	max-height: 100%;
-	width:500px;
+	width:600px;
 	margin:0 auto;
 }
 hr.vertical{
@@ -136,5 +137,28 @@ hr.vertical{
 .post_like {
   .fa {
     font-size: 20px;
+  }
+}
+.follow-button {
+  text-transform: uppercase;
+  border-color: #4090db;
+  color: #4090db;
+  margin-left: 20px;
+  &:visited, &:focus, &:hover {
+    border-color: #2D6396;
+    color: #2D6396;
+  }
+}
+
+.unfollow-button {
+  text-transform: uppercase;
+  border-color: #66bd2b;
+  background-color: #66bd2b;
+  color: white;
+  margin-left: 20px;
+  &:visited, &:focus, &:hover {
+    border-color: #47821F;
+    background-color: #47821F;
+    color: white;
   }
 }
